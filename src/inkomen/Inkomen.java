@@ -1,6 +1,6 @@
 package inkomen;
 
-public class Inkomen {
+public abstract  class Inkomen {
 
     private double inkomenHoeveelheid;
 
