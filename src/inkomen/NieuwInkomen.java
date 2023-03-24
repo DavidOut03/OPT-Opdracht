@@ -8,5 +8,10 @@ public class NieuwInkomen extends Inkomen{
         this.berekening = berekening;
     }
 
+    @Override
+    public double getInkomen() {
+        return Double.parseDouble(berekening);
+    }
+
     public String getBerekening() {return berekening;}
 }
