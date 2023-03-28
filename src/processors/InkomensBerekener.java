@@ -16,7 +16,9 @@ public class InkomensBerekener {
     public Personeelslid getPersoneelslid() {return personeelslid;}
     public Arbeidsdeskundige getArbeidsdeskundige() {return arbeidsdeskundige;}
 
-    public void berekenNieuwInkomen() {}
+    public void berekenNieuwInkomen() {
+
+    }
     public Double getNieuwInkomen() {
         return this.personeelslid.getNieuwInkomen().getInkomen();
     }

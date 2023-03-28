@@ -10,7 +10,11 @@ public class NieuwInkomen extends Inkomen{
 
     @Override
     public double getInkomen() {
-        return Double.parseDouble(berekening);
+        return Math.round((float) super.getInkomen());
+    }
+
+    public String getFormatedInkomen() {
+        return String.format("%,d", Math.round((float) super.getInkomen())) + ",00";
     }
 
     public String getBerekening() {return berekening;}
