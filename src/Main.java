@@ -1,7 +1,7 @@
 import kenmerken.Kenmerk;
 import kenmerken.KenmerkenLijst;
 import personen.Personeelslid;
-import processors.GegevensReceiver;
+import processors.InkomensBerekener;
 
 import java.util.Scanner;
 
@@ -45,7 +45,7 @@ public class Main {
             personeelslid.addKenmerk(kenmerk);
         }
 
-        GegevensReceiver gegevensReceiver = new GegevensReceiver(personeelslid);
+        InkomensBerekener gegevensReceiver = new InkomensBerekener(personeelslid, null);
         gegevensReceiver.berekenInkomen();
         System.out.println("Het nieuwe inkomen is: " + personeelslid.getNieuwInkomen().getFormatedInkomen());
 
