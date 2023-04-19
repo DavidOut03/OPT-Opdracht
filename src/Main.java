@@ -1,3 +1,5 @@
+
+
 import kenmerken.Kenmerk;
 import kenmerken.KenmerkenLijst;
 import personen.Personeelslid;
@@ -7,7 +9,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         KenmerkenLijst kenmerkenLijst = new KenmerkenLijst();
         kenmerkenLijst.setUpDefaultKenmerkenLijst();
 
@@ -36,7 +38,7 @@ public class Main {
 
             if(kenmerkNummer <= 0) continue;
 
-            Kenmerk kenmerk = kenmerkenLijst.getKenmerkList().get(kenmerkNummer -1);
+            Kenmerk kenmerk = KenmerkenLijst.getKenmerkList().get(kenmerkNummer -1);
             if(kenmerk == null) {
                 System.out.println("Kenmerk niet gevonden type hem alstublieft nog een keer in.");
                 continue;
@@ -46,7 +48,8 @@ public class Main {
         }
 
         InkomensBerekener gegevensReceiver = new InkomensBerekener(personeelslid, null);
-        gegevensReceiver.berekenInkomen();
+        double nieuwInkomen = gegevensReceiver.berekenInkomen();
+
         System.out.println("Het nieuwe inkomen is: " + personeelslid.getNieuwInkomen().getFormatedInkomen());
 
 

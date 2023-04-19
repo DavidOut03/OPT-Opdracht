@@ -8,6 +8,11 @@ public class Arbeidsdeskundige extends Persoon{
         super(email);
     }
 
+    @Override
+    public void verstuurEmail() {
+        if(!verstuurNaarArbeidsdeskundige) return;
+    }
+
     public boolean emailNaarArbeidsdeskundige() {return this.verstuurNaarArbeidsdeskundige;}
     public void setVerstuurNaarArbeidsdeskundige(boolean verstuur) {this.verstuurNaarArbeidsdeskundige = verstuur;}
 }

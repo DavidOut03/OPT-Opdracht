@@ -1,6 +1,6 @@
 package inkomen;
 
-public abstract  class Inkomen {
+public abstract class Inkomen {
 
     private double inkomenHoeveelheid;
 
@@ -9,4 +9,8 @@ public abstract  class Inkomen {
     }
 
     public double getInkomen() {return inkomenHoeveelheid;}
+
+    public String getFormatedInkomen() {
+        return String.format("%,d", Math.round((float) getInkomen())) + ",00";
+    }
 }

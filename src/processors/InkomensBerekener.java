@@ -3,7 +3,6 @@ package processors;
 import inkomen.NieuwInkomen;
 import kenmerken.Kenmerk;
 import org.junit.Assert;
-import org.junit.Test;
 import personen.Arbeidsdeskundige;
 import personen.Personeelslid;
 
@@ -20,8 +19,7 @@ public class InkomensBerekener {
     public Personeelslid getPersoneelslid() {return personeelslid;}
     public Arbeidsdeskundige getArbeidsdeskundige() {return arbeidsdeskundige;}
 
-    @Test
-    public void berekenInkomen()  {
+    public double berekenInkomen()  {
         double inkomen = personeelslid.getOudinkomen().getInkomen();
         Assert.assertNotEquals(0, inkomen);
 
@@ -32,14 +30,8 @@ public class InkomensBerekener {
             berekening += " * " + kenmerk.getInkomensMultiplier();
         }
 
-        Assert.assertNotEquals(0, inkomen);
         personeelslid.setNieuwInkomen(new NieuwInkomen(inkomen, berekening));
-
+        return inkomen;
     }
-    public Double getNieuwInkomen() {
-        return this.personeelslid.getNieuwInkomen().getInkomen();
-    }
-
-
 
 }

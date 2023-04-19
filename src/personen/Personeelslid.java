@@ -7,7 +7,7 @@ import kenmerken.Kenmerk;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personeelslid extends Persoon{
+public class Personeelslid extends Persoon {
 
     private OudInkomen oudinkomen;
     private NieuwInkomen nieuwInkomen;
@@ -19,6 +19,11 @@ public class Personeelslid extends Persoon{
         this.oudinkomen = new OudInkomen(oudInkomen);
         this.nieuwInkomen = null;
         this.kenmerken = new ArrayList<>();
+    }
+
+    @Override
+    public void verstuurEmail() {
+
     }
 
     public OudInkomen getOudinkomen() {return this.oudinkomen;}

@@ -1,6 +1,6 @@
 package personen;
 
-public class Persoon {
+public abstract class Persoon {
 
     private String email;
 
@@ -9,4 +9,6 @@ public class Persoon {
     }
 
     public String getEmail() {return email;}
+
+    public void verstuurEmail() {}
 }
