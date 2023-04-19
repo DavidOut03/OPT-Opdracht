@@ -10,6 +10,7 @@ public class InkomensBerekener {
 
     private Personeelslid personeelslid;
     private Arbeidsdeskundige arbeidsdeskundige;
+    private String berekening;
 
     public InkomensBerekener(Personeelslid personeelslid, Arbeidsdeskundige arbeidsdeskundige) {
         this.personeelslid = personeelslid;
@@ -19,18 +20,24 @@ public class InkomensBerekener {
     public Personeelslid getPersoneelslid() {return personeelslid;}
     public Arbeidsdeskundige getArbeidsdeskundige() {return arbeidsdeskundige;}
 
-    public double berekenInkomen()  {
-        double inkomen = personeelslid.getOudinkomen().getInkomen();
-        Assert.assertNotEquals(0, inkomen);
-
-        String berekening = inkomen + "";
+    public String getBerekening() {
+        String berekening = personeelslid.getOudinkomen().getInkomen() + "";
 
         for (Kenmerk kenmerk : personeelslid.getKenmerken()) {
-            inkomen = inkomen * kenmerk.getInkomensMultiplier();
             berekening += " * " + kenmerk.getInkomensMultiplier();
         }
 
-        personeelslid.setNieuwInkomen(new NieuwInkomen(inkomen, berekening));
+        return berekening;
+    }
+
+    public double berekenInkomen()  {
+        double inkomen = personeelslid.getOudinkomen().getInkomen();
+
+        for (Kenmerk kenmerk : personeelslid.getKenmerken()) {
+            inkomen = inkomen * kenmerk.getInkomensMultiplier();
+        }
+
+        personeelslid.setNieuwInkomen(new NieuwInkomen(inkomen, this.getBerekening()));
         return inkomen;
     }
 
