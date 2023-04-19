@@ -1,5 +1,7 @@
 package personen;
 
+import javax.mail.MessagingException;
+
 public abstract class Persoon {
 
     private String email;
@@ -10,5 +12,5 @@ public abstract class Persoon {
 
     public String getEmail() {return email;}
 
-    public void verstuurEmail() {}
+    public void verstuurEmail() throws MessagingException {}
 }

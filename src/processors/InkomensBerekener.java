@@ -2,7 +2,6 @@ package processors;
 
 import inkomen.NieuwInkomen;
 import kenmerken.Kenmerk;
-import org.junit.Assert;
 import personen.Arbeidsdeskundige;
 import personen.Personeelslid;
 
