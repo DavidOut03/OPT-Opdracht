@@ -1,10 +1,10 @@
-package main.java.processors;
+package entity.processors;
 
 
-import main.java.inkomen.NieuwInkomen;
-import main.java.kenmerken.Kenmerk;
-import main.java.personen.Arbeidsdeskundige;
-import main.java.personen.Personeelslid;
+import entity.inkomen.NieuwInkomen;
+import entity.kenmerken.Kenmerk;
+import entity.personen.Arbeidsdeskundige;
+import entity.personen.Personeelslid;
 
 public class InkomensBerekener {
 

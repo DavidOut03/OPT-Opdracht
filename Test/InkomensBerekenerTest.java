@@ -1,8 +1,8 @@
 
-import main.java.kenmerken.Kenmerk;
-import main.java.personen.Arbeidsdeskundige;
-import main.java.personen.Personeelslid;
-import main.java.processors.InkomensBerekener;
+import entity.kenmerken.Kenmerk;
+import entity.personen.Arbeidsdeskundige;
+import entity.personen.Personeelslid;
+import entity.processors.InkomensBerekener;
 import org.junit.Test;
 
 

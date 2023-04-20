@@ -1,5 +1,5 @@
 
-import main.java.personen.Arbeidsdeskundige;
+import entity.personen.Arbeidsdeskundige;
 import org.junit.jupiter.api.Test;
 
 class ArbeidsdeskundigeTest {

@@ -1,6 +1,4 @@
-package main.java.kenmerken;
-
-import main.java.kenmerken.Kenmerk;
+package entity.kenmerken;
 
 import java.util.ArrayList;
 import java.util.List;

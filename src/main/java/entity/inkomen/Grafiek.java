@@ -1,4 +1,4 @@
-package main.java.inkomen;
+package entity.inkomen;
 
 public class Grafiek {
 

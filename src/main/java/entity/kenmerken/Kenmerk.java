@@ -1,4 +1,4 @@
-package main.java.kenmerken;
+package entity.kenmerken;
 
 public class Kenmerk {
 
