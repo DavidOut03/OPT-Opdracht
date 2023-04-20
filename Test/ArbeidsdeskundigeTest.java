@@ -1,9 +1,6 @@
-package test;
 
 import org.junit.jupiter.api.Test;
 import personen.Arbeidsdeskundige;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ArbeidsdeskundigeTest {
 

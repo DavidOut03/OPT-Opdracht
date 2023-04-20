@@ -1,14 +1,14 @@
-package test;
-
 import kenmerken.Kenmerk;
+import org.junit.Test;
 import personen.Arbeidsdeskundige;
 import personen.Personeelslid;
 import processors.InkomensBerekener;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+
 
 class InkomensBerekenerTest {
-    @org.junit.jupiter.api.Test
+    @Test
     void berekenInkomen() {
         Arbeidsdeskundige arbeidsdeskundige = new Arbeidsdeskundige("arbeidsdeskundige@politie.nl");
         Personeelslid janModaal = new Personeelslid("jan.modaal@gmail.com", 35000);
@@ -19,7 +19,7 @@ class InkomensBerekenerTest {
         assertEquals(24500, berekener.berekenInkomen());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getBerekening() {
         Arbeidsdeskundige arbeidsdeskundige = new Arbeidsdeskundige("arbeidsdeskundige@politie.nl");
         Personeelslid janModaal = new Personeelslid("jan.modaal@gmail.com", 35000);
