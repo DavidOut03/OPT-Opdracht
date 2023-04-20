@@ -1,4 +1,4 @@
-package inkomen;
+package main.java.inkomen;
 
 public class NieuwInkomen extends Inkomen {
 

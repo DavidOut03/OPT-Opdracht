@@ -1,4 +1,4 @@
-package personen;
+package main.java.personen;
 
 import javax.mail.MessagingException;
 

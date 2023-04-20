@@ -1,6 +1,6 @@
 
+import main.java.personen.Arbeidsdeskundige;
 import org.junit.jupiter.api.Test;
-import personen.Arbeidsdeskundige;
 
 class ArbeidsdeskundigeTest {
 

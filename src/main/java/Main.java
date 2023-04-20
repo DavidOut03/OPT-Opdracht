@@ -1,10 +1,7 @@
+package main.java;
 
 
-import kenmerken.Kenmerk;
-import kenmerken.KenmerkenLijst;
-import personen.Arbeidsdeskundige;
-import personen.Personeelslid;
-import processors.InkomensBerekener;
+import main.java.personen.Arbeidsdeskundige;
 
 import javax.mail.MessagingException;
 import java.util.Scanner;

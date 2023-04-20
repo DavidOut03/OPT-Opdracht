@@ -1,44 +1,28 @@
-package personen;
+package main.java.personen;
 
-import inkomen.NieuwInkomen;
-import inkomen.OudInkomen;
-import kenmerken.Kenmerk;
-
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
+import javax.mail.*;
+import javax.mail.internet.*;
 
-public class Personeelslid extends Persoon {
+public class Arbeidsdeskundige extends Persoon{
 
-    private OudInkomen oudinkomen;
-    private NieuwInkomen nieuwInkomen;
-    private List<Kenmerk> kenmerken;
+    private boolean verstuurNaarArbeidsdeskundige;
 
-    public Personeelslid(String email, double oudInkomen) {
+    public Arbeidsdeskundige(String email) {
         super(email);
-
-        this.oudinkomen = new OudInkomen(oudInkomen);
-        this.nieuwInkomen = null;
-        this.kenmerken = new ArrayList<>();
     }
 
     @Override
     public void verstuurEmail() {
+        if(!verstuurNaarArbeidsdeskundige) return;
         final String username = "davidoutdeveloper@gmail.com";
         final String password = "DavidOut123";
 
-        System.out.println("1");
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
-
-        System.out.println("2");
-
 
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
@@ -68,14 +52,6 @@ public class Personeelslid extends Persoon {
 
     }
 
-    public OudInkomen getOudinkomen() {return this.oudinkomen;}
-    public NieuwInkomen getNieuwInkomen() {return this.nieuwInkomen;}
-    public List<Kenmerk> getKenmerken() {return this.kenmerken;}
-
-    public void addKenmerk(Kenmerk kenmerk) {this.kenmerken.add(kenmerk);}
-
-    public void setOudinkomen(OudInkomen oudinkomen) {this.oudinkomen = oudinkomen;}
-    public void setNieuwInkomen(NieuwInkomen nieuwInkomen) {this.nieuwInkomen = nieuwInkomen;}
-
-    public void setKenmerken(List<Kenmerk> kenmerken) {this.kenmerken = kenmerken;}
+    public boolean emailNaarArbeidsdeskundige() {return this.verstuurNaarArbeidsdeskundige;}
+    public void setVerstuurNaarArbeidsdeskundige(boolean verstuur) {this.verstuurNaarArbeidsdeskundige = verstuur;}
 }

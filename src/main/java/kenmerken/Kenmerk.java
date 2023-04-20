@@ -1,4 +1,4 @@
-package kenmerken;
+package main.java.kenmerken;
 
 public class Kenmerk {
 

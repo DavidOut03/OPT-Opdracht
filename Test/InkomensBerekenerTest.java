@@ -1,8 +1,10 @@
-import kenmerken.Kenmerk;
+
+import main.java.kenmerken.Kenmerk;
+import main.java.personen.Arbeidsdeskundige;
+import main.java.personen.Personeelslid;
+import main.java.processors.InkomensBerekener;
 import org.junit.Test;
-import personen.Arbeidsdeskundige;
-import personen.Personeelslid;
-import processors.InkomensBerekener;
+
 
 import static org.junit.Assert.assertEquals;
 

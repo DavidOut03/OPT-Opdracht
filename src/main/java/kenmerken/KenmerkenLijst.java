@@ -1,4 +1,6 @@
-package kenmerken;
+package main.java.kenmerken;
+
+import main.java.kenmerken.Kenmerk;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-import kenmerken.KenmerkenLijst;
+import main.java.kenmerken.KenmerkenLijst;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
