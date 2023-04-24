@@ -59,13 +59,23 @@ public class Main extends Application {
 
 
         FlexBox root = new FlexBox();
+        root.showCenter(true);
+
         root.addComponent(hBox);
+
+        hBox1.setStyle("-fx-background-color: red");
         root.addComponent(hBox1);
+
+        hBox2.setStyle("-fx-background-color: green;");
         root.addComponent(hBox2);
+
+        hBox3.setStyle("-fx-background-color: blue;");
         root.addComponent(hBox3);
 
+
         root.setStyle("-fx-background-color: #32323C;");
-        Scene scene = new Scene(root, Screen.getPrimary().getBounds().getWidth() - 20, Screen.getPrimary().getBounds().getHeight() - 200);
+        boolean rectangle = true;
+        Scene scene = (rectangle) ?  new Scene(root, 1000, 1000) : new Scene(root, Screen.getPrimary().getBounds().getWidth() - 20, Screen.getPrimary().getBounds().getHeight() - 200);
         Window window = scene.getWindow();
 
 
