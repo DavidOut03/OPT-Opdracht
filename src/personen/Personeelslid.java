@@ -3,6 +3,7 @@ package personen;
 import inkomen.NieuwInkomen;
 import inkomen.OudInkomen;
 import kenmerken.Kenmerk;
+import processors.InkomensBerekener;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -28,17 +29,18 @@ public class Personeelslid extends Persoon {
     @Override
     public void verstuurEmail() {
         final String username = "davidoutdeveloper@gmail.com";
-        final String password = "DavidOut123";
+        final String password = "rmsijixejwjvyevb";
 
-        System.out.println("1");
+        if(getNieuwInkomen() == null) {
+            InkomensBerekener berekener = new InkomensBerekener(this);
+            berekener.berekenInkomen();
+        }
+
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
-
-        System.out.println("2");
-
 
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
@@ -53,12 +55,12 @@ public class Personeelslid extends Persoon {
             message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(this.getEmail()));
-            message.setSubject("Testing Subject");
-            message.setText("Dear Mail Crawler,"
-                    + "\n\n No spam to my email, please!");
+            message.setSubject("Nieuw Loon");
+            message.setText("Beste Lezer,"
+                    + "\n\n hierbij het nieuwe berekende loon is " + getNieuwInkomen().getFormatedInkomen()
+                    + "\n\n De gebruikte berekening is: " + getNieuwInkomen().getBerekening());
 
             Transport.send(message);
-
             System.out.println("Email sent successfully");
 
         } catch (MessagingException e) {

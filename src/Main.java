@@ -50,12 +50,50 @@ public class Main {
             personeelslid.addKenmerk(kenmerk);
         }
 
-        InkomensBerekener gegevensReceiver = new InkomensBerekener(personeelslid, null);
+        InkomensBerekener gegevensReceiver = new InkomensBerekener(personeelslid);
         double nieuwInkomen = gegevensReceiver.berekenInkomen();
 
         System.out.println("Het nieuwe inkomen is: " + personeelslid.getNieuwInkomen().getFormatedInkomen());
 
 
+            String aws = "";
+            while (!jaOfNee(aws)) {
+                System.out.println();
+                System.out.println("Wilt u een email naar u de arbeidsdeskundige sturen?");
+                aws = scanner.nextLine();
+            }
+
+            if(aws.equalsIgnoreCase("ja") || aws.equalsIgnoreCase("j") || aws.equalsIgnoreCase("yes") || aws.equalsIgnoreCase("y")) {
+                System.out.println("Wat is het email adress van de arbeidsdeskundige?");
+                String abEmail = scanner.nextLine();
+                Arbeidsdeskundige arbeidsdeskundige = new Arbeidsdeskundige(abEmail, personeelslid);
+                arbeidsdeskundige.setVerstuurNaarArbeidsdeskundige(true);
+                arbeidsdeskundige.verstuurEmail();
+            }
+
+            aws = "";
+            while (!jaOfNee(aws)) {
+                System.out.println();
+                System.out.println("Wilt u een email sturen naar het personeelsid?");
+                aws = scanner.nextLine();
+            }
+
+            if(aws.equalsIgnoreCase("ja") || aws.equalsIgnoreCase("j") || aws.equalsIgnoreCase("yes") || aws.equalsIgnoreCase("y")) {
+                personeelslid.verstuurEmail();
+            }
+
+    }
+
+    private static boolean jaOfNee(String aws) {
+        if(aws.equalsIgnoreCase("ja") || aws.equalsIgnoreCase("j") || aws.equalsIgnoreCase("yes") || aws.equalsIgnoreCase("y")) {
+            return true;
+        }
+
+        if(aws.equalsIgnoreCase("nee") || aws.equalsIgnoreCase("n") || aws.equalsIgnoreCase("no")) {
+            return true;
+        }
+
+        return false;
     }
 
 

@@ -8,7 +8,9 @@ public abstract class Inkomen {
         this.inkomenHoeveelheid = inkomen;
     }
 
-    public double getInkomen() {return inkomenHoeveelheid;}
+    public double getInkomen() {
+        return inkomenHoeveelheid;
+    }
 
     public String getFormatedInkomen() {
         return String.format("%,d", Math.round((float) getInkomen())) + ",00";

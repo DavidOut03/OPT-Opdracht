@@ -8,16 +8,13 @@ import personen.Personeelslid;
 public class InkomensBerekener {
 
     private Personeelslid personeelslid;
-    private Arbeidsdeskundige arbeidsdeskundige;
     private String berekening;
 
-    public InkomensBerekener(Personeelslid personeelslid, Arbeidsdeskundige arbeidsdeskundige) {
+    public InkomensBerekener(Personeelslid personeelslid) {
         this.personeelslid = personeelslid;
-        this.arbeidsdeskundige = arbeidsdeskundige;
     }
 
     public Personeelslid getPersoneelslid() {return personeelslid;}
-    public Arbeidsdeskundige getArbeidsdeskundige() {return arbeidsdeskundige;}
 
     public String getBerekening() {
         String berekening = personeelslid.getOudinkomen().getInkomen() + "";
