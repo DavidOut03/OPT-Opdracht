@@ -39,38 +39,40 @@ public class Main extends Application {
         HBox hBox = new HBox();
         hBox.setStyle("-fx-background-color: #464653");
         hBox.setId("hbox");
-        hBox.setPrefSize(50, 50);
+        hBox.setPrefSize(250, 100);
 
         HBox hBox1 = new HBox();
         hBox1.setStyle("-fx-background-color: #464653");
         hBox1.setId("hbox1");
-        hBox1.setPrefSize(50, 50);
+        hBox1.setPrefSize(250, 100);
 
         HBox hBox2 = new HBox();
         hBox2.setStyle("-fx-background-color: #464653");
         hBox2.setId("hbox2");
-        hBox2.setPrefSize(50, 50);
+        hBox2.setPrefSize(500, 100);
 
         HBox hBox3  = new HBox();
         hBox3.setStyle("-fx-background-color: #464653");
         hBox3.setId("hbox3");
-        hBox3.setPrefSize(50, 50);
+        hBox3.setPrefSize(250, 100);
+
+        HBox hBox4  = new HBox();
+        hBox4.setStyle("-fx-background-color: #464653");
+        hBox4.setId("hbox4");
+        hBox4.setPrefSize(500, 100);
 
 
 
         FlexBox root = new FlexBox();
         root.showCenter(true);
 
-        root.addComponent(hBox);
-
         hBox1.setStyle("-fx-background-color: red");
-        root.addComponent(hBox1);
-
         hBox2.setStyle("-fx-background-color: green;");
-        root.addComponent(hBox2);
-
         hBox3.setStyle("-fx-background-color: blue;");
-        root.addComponent(hBox3);
+        hBox4.setStyle("-fx-background-color: yellow;");
+
+        root.addComponents(hBox, hBox1, hBox2, hBox3, hBox4);
+
 
 
         root.setStyle("-fx-background-color: #32323C;");
