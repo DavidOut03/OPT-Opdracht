@@ -84,6 +84,8 @@ public class Main {
 
     }
 
+
+
     private static boolean jaOfNee(String aws) {
         if(aws.equalsIgnoreCase("ja") || aws.equalsIgnoreCase("j") || aws.equalsIgnoreCase("yes") || aws.equalsIgnoreCase("y")) {
             return true;
