@@ -60,4 +60,36 @@ public class InkomensBerekener {
         return 80;
     }
 
+    public static String getNieuwUitkeringPlusInkomen(int aantalMaandenZiekte, String huidigeUitkering, int percentageVanOudeInkomen, int werkvermogenToekomst) {
+        String returned = "";
+        if(huidigeUitkering.equalsIgnoreCase("wga")) returned = "WGA 70%";
+        if(huidigeUitkering.equalsIgnoreCase("iva")) returned = "IVA 75%";
+
+
+        if(huidigeUitkering.equalsIgnoreCase("geen")) {
+            if(aantalMaandenZiekte > 0 && aantalMaandenZiekte < 12) {
+                returned =  "Geen 90%";
+            } else if(aantalMaandenZiekte >= 12 && aantalMaandenZiekte < 24) {
+                returned = "Geen 80%";
+            } else {
+                returned = "Geen 70%";
+            }
+
+            return returned;
+        }
+
+
+
+
+        if(aantalMaandenZiekte < 24) return returned;
+        if(percentageVanOudeInkomen > 65) return returned;
+         returned = "WGA 70%";
+
+        if(percentageVanOudeInkomen <= 20 && werkvermogenToekomst <= 50) {
+            returned = "IVA 75%";
+        }
+
+        return returned;
+    }
+
 }

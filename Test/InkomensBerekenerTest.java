@@ -50,5 +50,22 @@ class InkomensBerekenerTest {
 
     }
 
+    @Test
+    public void inkomensPercentagePlusUitkering() {
+        assertEquals("Geen 90%", InkomensBerekener.getNieuwUitkeringPlusInkomen(6, "geen", 100, 70));
+        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(13, "wga", 70, 40));
+        assertEquals("IVA 75%", InkomensBerekener.getNieuwUitkeringPlusInkomen(25, "iva", 70, 10));
+        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(6, "wga", 80, 13));
+        assertEquals("Geen 80%", InkomensBerekener.getNieuwUitkeringPlusInkomen(13, "geen", 70, 70));
+        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(25, "wga", 90, 40));
+        assertEquals("IVA 75%", InkomensBerekener.getNieuwUitkeringPlusInkomen(6, "iva", 70, 50));
+        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(13, "wga", 90, 10));
+        assertEquals("Geen 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(25, "geen", 80, 80));
+        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(6, "wga", 70, 75));
+        assertEquals("IVA 75%", InkomensBerekener.getNieuwUitkeringPlusInkomen(13, "iva", 90, 40));
+        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(25, "wga", 70, 95));
+
+    }
+
 
 }
