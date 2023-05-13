@@ -29,21 +29,22 @@ class InkomensBerekenerTest {
     }
 
     @Test
-    public void berekenProcentueleInkomen() {
-        assertEquals(75, InkomensBerekener.berekenInkomen(false, true, true));
-        assertEquals(70, InkomensBerekener.berekenInkomen(false, false, true));
-        assertEquals(80, InkomensBerekener.berekenInkomen(true, true, true));
-        assertEquals(80, InkomensBerekener.berekenInkomen(true, false, true));
-        assertEquals(80, InkomensBerekener.berekenInkomen(true, true, false));
-        assertEquals(80, InkomensBerekener.berekenInkomen(true, false, false));
-        assertEquals(70, InkomensBerekener.berekenInkomen(false, true, false));
-        assertEquals(70, InkomensBerekener.berekenInkomen(false, false, false));
+    public void rechtOpWGA() {
+        assertEquals(false, InkomensBerekener.rechtOpWGA(false, true, true));
+        assertEquals(false, InkomensBerekener.rechtOpWGA(false, false, true));
+        assertEquals(true, InkomensBerekener.rechtOpWGA(true, true, true));
+        assertEquals(true, InkomensBerekener.rechtOpWGA(true, false, true));
+        assertEquals(true, InkomensBerekener.rechtOpWGA(true, true, false));
+        assertEquals(false, InkomensBerekener.rechtOpWGA(true, false, false));
+        assertEquals(false, InkomensBerekener.rechtOpWGA(false, true, false));
+        assertEquals(false, InkomensBerekener.rechtOpWGA(false, false, false));
     }
 
     @Test
     public void berekenMinderDan2JaarZiek() {
         assertEquals(100, InkomensBerekener.berekenInkomen(5));
         assertEquals(90, InkomensBerekener.berekenInkomen(6));
+        assertEquals(90, InkomensBerekener.berekenInkomen(7));
         assertEquals(90, InkomensBerekener.berekenInkomen(11));
         assertEquals(90, InkomensBerekener.berekenInkomen(12));
         assertEquals(80, InkomensBerekener.berekenInkomen(13));
@@ -52,18 +53,29 @@ class InkomensBerekenerTest {
 
     @Test
     public void inkomensPercentagePlusUitkering() {
-        assertEquals("Geen 90%", InkomensBerekener.getNieuwUitkeringPlusInkomen(6, "geen", 100, 70));
-        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(13, "wga", 70, 40));
-        assertEquals("IVA 75%", InkomensBerekener.getNieuwUitkeringPlusInkomen(25, "iva", 70, 10));
-        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(6, "wga", 80, 13));
-        assertEquals("Geen 80%", InkomensBerekener.getNieuwUitkeringPlusInkomen(13, "geen", 70, 70));
-        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(25, "wga", 90, 40));
-        assertEquals("IVA 75%", InkomensBerekener.getNieuwUitkeringPlusInkomen(6, "iva", 70, 50));
-        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(13, "wga", 90, 10));
-        assertEquals("Geen 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(25, "geen", 80, 80));
-        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(6, "wga", 70, 75));
-        assertEquals("IVA 75%", InkomensBerekener.getNieuwUitkeringPlusInkomen(13, "iva", 90, 40));
-        assertEquals("WGA 70%", InkomensBerekener.getNieuwUitkeringPlusInkomen(25, "wga", 70, 95));
+        Object[][] testData = {
+                {6, true,	true,	false, "WGA 70%"},
+                {6, false,	false,	true, "Geen 90%"},
+                {15,	true,	false,	true, "IVA 75%"},
+                {15,	false,	true,	false, "Geen 80%"},
+
+
+                {28,	true,	true,	false, "WGA 70%"},
+                {28,	false,	false,	true, "WGA 70%"},
+                {6,	true,	false,	true, "IVA 75%"},
+                {28,	true,	false,	true, "IVA 75%"},
+
+
+                {6,	true,	true,	false, "WGA 70%"},
+                {6,	false,	false,	true, "Geen 90%"},
+                {15,	true,	false,	true, "IVA 75%"},
+        };
+
+
+        for (Object[] data : testData) {
+            String uitkomst = InkomensBerekener.getNieuwUitkeringPlusInkomen((int) data[0], (boolean) data[1], (boolean) data[2], (boolean) data[3]);
+            assertEquals(data[4], uitkomst);
+        }
 
     }
 
