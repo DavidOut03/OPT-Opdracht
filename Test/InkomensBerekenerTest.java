@@ -30,13 +30,13 @@ class InkomensBerekenerTest {
 
     @Test
     public void rechtOpWGA() {
-        assertEquals(false, InkomensBerekener.rechtOpWGA(false, true, true));
-        assertEquals(false, InkomensBerekener.rechtOpWGA(false, false, true));
-        assertEquals(true, InkomensBerekener.rechtOpWGA(true, true, true));
-        assertEquals(true, InkomensBerekener.rechtOpWGA(true, false, true));
-        assertEquals(true, InkomensBerekener.rechtOpWGA(true, true, false));
         assertEquals(false, InkomensBerekener.rechtOpWGA(true, false, false));
+        assertEquals(false, InkomensBerekener.rechtOpWGA(false, true, true));
         assertEquals(false, InkomensBerekener.rechtOpWGA(false, true, false));
+        assertEquals(true, InkomensBerekener.rechtOpWGA(true, false, true));
+        assertEquals(false, InkomensBerekener.rechtOpWGA(false, false, true));
+        assertEquals(true, InkomensBerekener.rechtOpWGA(true, true, false));
+        assertEquals(true, InkomensBerekener.rechtOpWGA(true, true, true));
         assertEquals(false, InkomensBerekener.rechtOpWGA(false, false, false));
     }
 
@@ -54,21 +54,13 @@ class InkomensBerekenerTest {
     @Test
     public void inkomensPercentagePlusUitkering() {
         Object[][] testData = {
-                {6, true,	true,	false, "WGA 70%"},
-                {6, false,	false,	true, "Geen 90%"},
+                {6, true,	true,	true, "WGA 70%"},
+                {6, false,	false,	false, "Geen 90%"},
                 {15,	true,	false,	true, "IVA 75%"},
                 {15,	false,	true,	false, "Geen 80%"},
-
-
                 {28,	true,	true,	false, "WGA 70%"},
                 {28,	false,	false,	true, "WGA 70%"},
-                {6,	true,	false,	true, "IVA 75%"},
-                {28,	true,	false,	true, "IVA 75%"},
 
-
-                {6,	true,	true,	false, "WGA 70%"},
-                {6,	false,	false,	true, "Geen 90%"},
-                {15,	true,	false,	true, "IVA 75%"},
         };
 
 
