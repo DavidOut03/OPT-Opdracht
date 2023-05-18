@@ -2,17 +2,11 @@ package inkomen;
 
 public abstract class Inkomen {
 
-    private double inkomenHoeveelheid;
-
+    private final double inkomen;
     public Inkomen(double inkomen) {
-        this.inkomenHoeveelheid = inkomen;
+        this.inkomen = inkomen;
     }
 
-    public double getInkomen() {
-        return inkomenHoeveelheid;
-    }
-
-    public String getFormatedInkomen() {
-        return String.format("%,d", Math.round((float) getInkomen())) + ",00";
-    }
+    protected double getOrgineelInkomen() {return this.inkomen;}
+    protected abstract double getNieuwInkomen();
 }
