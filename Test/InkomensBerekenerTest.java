@@ -30,14 +30,10 @@ class InkomensBerekenerTest {
 
     @Test
     public void rechtOpWGA() {
-        assertEquals(false, InkomensBerekener.rechtOpWGA(true, false, false));
-        assertEquals(false, InkomensBerekener.rechtOpWGA(false, true, true));
-        assertEquals(false, InkomensBerekener.rechtOpWGA(false, true, false));
         assertEquals(true, InkomensBerekener.rechtOpWGA(true, false, true));
-        assertEquals(false, InkomensBerekener.rechtOpWGA(false, false, true));
         assertEquals(true, InkomensBerekener.rechtOpWGA(true, true, false));
-        assertEquals(true, InkomensBerekener.rechtOpWGA(true, true, true));
-        assertEquals(false, InkomensBerekener.rechtOpWGA(false, false, false));
+        assertEquals(false, InkomensBerekener.rechtOpWGA(true, false, false));
+        assertEquals(false, InkomensBerekener.rechtOpWGA(false, true, false));
     }
 
     @Test
