@@ -5,9 +5,9 @@ import kenmerken.KenmerkenLijst;
 
 public class Personeelslid extends Persoon {
 
-    private KenmerkenLijst kenmerkenLijst;
+    private final KenmerkenLijst kenmerkenLijst;
     private Inkomen nieuwInkomen;
-    private double oudinkomen;
+    private final double oudinkomen;
 
 
     public Personeelslid(String email, double oudInkomen) {
