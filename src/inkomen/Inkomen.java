@@ -1,18 +1,21 @@
 package inkomen;
 
+import kenmerken.KenmerkenLijst;
+import personen.Personeelslid;
+
 public abstract class Inkomen {
 
-    private double inkomenHoeveelheid;
 
+    private double inkomen;
     public Inkomen(double inkomen) {
-        this.inkomenHoeveelheid = inkomen;
+        this.inkomen = inkomen;
     }
 
-    public double getInkomen() {
-        return inkomenHoeveelheid;
-    }
+    protected double getOrgineelIkomen() {return inkomen;}
 
     public String getFormatedInkomen() {
-        return String.format("%,d", Math.round((float) getInkomen())) + ",00";
+        return String.format("%.2f", getNieuwInkomen());
     }
+
+    public abstract double getNieuwInkomen();
 }
