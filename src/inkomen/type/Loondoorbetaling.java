@@ -6,7 +6,7 @@ import personen.Personeelslid;
 public class Loondoorbetaling extends Inkomen {
 
     private int aantalMaanden;
-    public Loondoorbetaling(double inkomen, int aantalMaanden) {
+    public  Loondoorbetaling(double inkomen, int aantalMaanden) {
         super(inkomen);
         this.aantalMaanden = aantalMaanden;
     }
